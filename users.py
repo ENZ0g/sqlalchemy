@@ -76,3 +76,14 @@ def get_user_from_db(session):
 
     birthdate, height = [(i.birthdate, i.height) for i in query][0]
     return birthdate, height
+
+
+def get_all_users(session):
+    query = session.query(User)
+    for i in query:
+        print(i.first_name.ljust(15, ' '),
+              i.last_name.ljust(15, ' '),
+              i.birthdate.ljust(13, ' '),
+              i.gender.ljust(3, ' '),
+              i.email.ljust(15, ' '),
+              str(i.height).ljust(7, ' '))
