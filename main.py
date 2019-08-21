@@ -10,7 +10,8 @@ while True:
     choice = input('Выберете режим:\n'
                    '1. Добавить пользователя\n'
                    '2. Найти атлета с ближайшими к пользователю параметрами\n'
-                   '3. Выйти\n>')
+                   '3. Показать всех пользователей\n'
+                   '4. Выйти\n>')
 
     if choice == '1':
         user = users.user_data_request()
@@ -27,5 +28,7 @@ while True:
             find_athlete.find_nearest_bdate(birhdate, session)
             find_athlete.find_nearest_height(height, session)
     elif choice == '3':
+        users.get_all_users(session)
+    elif choice == '4':
         break
 
